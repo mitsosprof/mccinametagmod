@@ -1,0 +1,20 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.anastarawneh.mccinametagmod.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [],
+  "client": [
+    "BitmapFontLoaderMixin",
+    "ClientPacketListenerMixin",
+    "EntityRendererMixin",
+    "FontManagerMixin",
+    "GenericContainerScreenMixin",
+    "HudAccessor",
+    "LivingEntityRendererMixin",
+    "LivingEntityRenderStateMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
