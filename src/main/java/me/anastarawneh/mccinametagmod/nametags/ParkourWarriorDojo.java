@@ -18,9 +18,9 @@ public class ParkourWarriorDojo {
         
         Nametags.TOP_LABEL = Component.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR));
         int crownLevel = Minecraft.getInstance().player.experienceLevel;
-        for (PlayerInfo entry : Minecraft.getInstance().player.networkHandler.getListedPlayerListEntries())
-            if (entry.getDisplayName() != null && entry.getDisplayName().toString().contains("color=yellow"))
-                MEDALS = Integer.parseInt(entry.getDisplayName().getSiblings().get(1).getString());
+        for (PlayerInfo entry : Minecraft.getInstance().player.connection.getListedOnlinePlayers())
+            if (entry.getTabListDisplayName() != null && entry.getTabListDisplayName().toString().contains("color=yellow"))
+                MEDALS = Integer.parseInt(entry.getTabListDisplayName().getSiblings().get(1).getString());
         Nametags.BOTTOM_LABEL = Component.literal(MCCINametagMod.FACTION).setStyle(Style.EMPTY.withFont(Util.font("mcc", "icon")))
                 .append(Component.literal(MCCINametagMod.FACTION_LEVEL + " ").setStyle(Style.EMPTY.withFont(Util.font("minecraft", "default"))))
                 .append(Component.literal(MCCINametagMod.CROWN).setStyle(Style.EMPTY.withFont(Util.font("mcc", "icon"))))

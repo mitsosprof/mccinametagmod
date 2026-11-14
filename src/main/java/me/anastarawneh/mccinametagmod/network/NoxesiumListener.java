@@ -24,7 +24,7 @@ public class NoxesiumListener {
             map.put("serverType", serverType);
             map.put("subType", subType);
             map.put("associatedGame", associatedGame);
-            Minecraft.getInstance().player.displayClientMessage(Component.literal("Received packet -> " + map), false);
+            Minecraft.getInstance().player.sendSystemMessage(Component.literal("Received packet -> " + map));
         }
 
         switch (serverType) {
@@ -79,7 +79,7 @@ public class NoxesiumListener {
             map.put("totalRounds", String.valueOf(totalRounds));
             map.put("mapId", mapId);
             map.put("mapName", mapName);
-            Minecraft.getInstance().player.displayClientMessage(Component.literal("Received packet -> " + map), false);
+            Minecraft.getInstance().player.sendSystemMessage(Component.literal("Received packet -> " + map));
         }
 
         MCCINametagMod.STAGE = stage;

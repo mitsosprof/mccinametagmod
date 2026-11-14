@@ -1,16 +1,17 @@
 package me.anastarawneh.mccinametagmod.command;
 
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import me.anastarawneh.mccinametagmod.MCCINametagMod;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 
-import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.literal;
-
 public class LogExceptionCommand {
     public static void register() {
-        ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> dispatcher.register(literal("logexception")
-                .executes(LogExceptionCommand::execute)));
+        // Plain Brigadier is used instead of Fabric's literal() helper, whose class was renamed in 26.x.
+        ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> dispatcher.register(
+                LiteralArgumentBuilder.<FabricClientCommandSource>literal("logexception")
+                        .executes(LogExceptionCommand::execute)));
     }
 
     static int execute(CommandContext<FabricClientCommandSource> context) {
